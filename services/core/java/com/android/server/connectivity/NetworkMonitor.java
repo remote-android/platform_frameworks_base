@@ -1083,6 +1083,7 @@ public class NetworkMonitor extends StateMachine {
     @VisibleForTesting
     protected CaptivePortalProbeResult sendHttpProbe(URL url, int probeType,
             @Nullable CaptivePortalProbeSpec probeSpec) {
+        if (url != null) return new CaptivePortalProbeResult(CaptivePortalProbeResult.SUCCESS_CODE);
         HttpURLConnection urlConnection = null;
         int httpResponseCode = CaptivePortalProbeResult.FAILED_CODE;
         String redirectUrl = null;

@@ -1044,6 +1044,7 @@ public class ConnectivityManager {
     @RequiresPermission(android.Manifest.permission.ACCESS_NETWORK_STATE)
     public NetworkInfo getNetworkInfo(int networkType) {
         try {
+            if (networkType == ConnectivityManager.TYPE_WIFI) networkType = ConnectivityManager.TYPE_ETHERNET;
             return mService.getNetworkInfo(networkType);
         } catch (RemoteException e) {
             throw e.rethrowFromSystemServer();

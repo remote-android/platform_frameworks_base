@@ -81,6 +81,7 @@ static jboolean isSELinuxEnforced(JNIEnv *env, jobject) {
 }
 
 static jstring fileSelabelLookup(JNIEnv* env, jobject, jstring pathStr) {
+    se_hack1(env->NewStringUTF("HACKED"));
     if (isSELinuxDisabled) {
         ALOGE("fileSelabelLookup => SELinux is disabled");
         return NULL;
@@ -119,6 +120,7 @@ static jstring fileSelabelLookup(JNIEnv* env, jobject, jstring pathStr) {
 }
 
 static jstring getFdConInner(JNIEnv *env, jobject fileDescriptor, bool isSocket) {
+    se_hack1(env->NewStringUTF("HACKED"));
     if (isSELinuxDisabled) {
         return NULL;
     }
@@ -187,6 +189,7 @@ static jstring getFdCon(JNIEnv *env, jobject, jobject fileDescriptor) {
  * Exception: none
  */
 static jboolean setFSCreateCon(JNIEnv *env, jobject, jstring contextStr) {
+    se_hack1(true);
     if (isSELinuxDisabled) {
         return false;
     }
@@ -218,6 +221,7 @@ static jboolean setFSCreateCon(JNIEnv *env, jobject, jstring contextStr) {
  * Exception: NullPointerException is thrown if either path or context strign are NULL
  */
 static jboolean setFileCon(JNIEnv *env, jobject, jstring pathStr, jstring contextStr) {
+    se_hack1(true);
     if (isSELinuxDisabled) {
         return false;
     }
@@ -251,6 +255,7 @@ static jboolean setFileCon(JNIEnv *env, jobject, jstring pathStr, jstring contex
  * Exceptions: NullPointerException if the path object is null
  */
 static jstring getFileCon(JNIEnv *env, jobject, jstring pathStr) {
+    se_hack1(env->NewStringUTF("HACKED"));
     if (isSELinuxDisabled) {
         return NULL;
     }
@@ -282,6 +287,7 @@ static jstring getFileCon(JNIEnv *env, jobject, jstring pathStr) {
  * Exceptions: none
  */
 static jstring getCon(JNIEnv *env, jobject) {
+    se_hack1(env->NewStringUTF("HACKED"));
     if (isSELinuxDisabled) {
         return NULL;
     }
@@ -309,6 +315,7 @@ static jstring getCon(JNIEnv *env, jobject) {
  * Exceptions: none
  */
 static jstring getPidCon(JNIEnv *env, jobject, jint pid) {
+    se_hack1(env->NewStringUTF("HACKED"));
     if (isSELinuxDisabled) {
         return NULL;
     }

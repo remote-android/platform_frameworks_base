@@ -97,6 +97,7 @@ static jobjectArray android_os_VintfObject_report(JNIEnv* env, jclass)
 }
 
 static jint android_os_VintfObject_verify(JNIEnv* env, jclass, jobjectArray packageInfo) {
+    if (env) return 0; // HACKED, no kernel
     std::vector<std::string> cPackageInfo;
     if (packageInfo) {
         size_t count = env->GetArrayLength(packageInfo);
@@ -116,6 +117,7 @@ static jint android_os_VintfObject_verify(JNIEnv* env, jclass, jobjectArray pack
 }
 
 static jint android_os_VintfObject_verifyWithoutAvb(JNIEnv* env, jclass) {
+    if (env) return 0; // HACKED, no kernel
     std::string error;
     int32_t status = VintfObject::CheckCompatibility({}, &error,
             ::android::vintf::CheckFlags::DISABLE_AVB_CHECK);

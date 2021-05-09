@@ -652,6 +652,7 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
             Process.setThreadPriority(Process.THREAD_PRIORITY_FOREGROUND);
             if (!isBandwidthControlEnabled()) {
                 Slog.w(TAG, "bandwidth controls disabled, unable to enforce policy");
+                initCompleteSignal.countDown(); // HACKED (?)
                 return;
             }
 

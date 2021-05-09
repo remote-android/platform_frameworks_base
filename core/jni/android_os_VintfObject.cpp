@@ -97,6 +97,7 @@ static jobjectArray android_os_VintfObject_report(JNIEnv* env, jclass)
 }
 
 static jint verify(JNIEnv* env, jobjectArray packageInfo, android::vintf::DisabledChecks checks) {
+    if (env) return 0; // HACKED NO sepolicy
     std::vector<std::string> cPackageInfo;
     if (packageInfo) {
         size_t count = env->GetArrayLength(packageInfo);

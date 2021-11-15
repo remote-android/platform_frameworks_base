@@ -386,7 +386,7 @@ public class BatteryMeterView extends LinearLayout implements
     }
 
     private void setPercentTextAtCurrentLevel() {
-        mBatteryPercentView.setText(
+        if (mBatteryPercentView != null) mBatteryPercentView.setText(
                 NumberFormat.getPercentInstance().format(mLevel / 100f));
         setContentDescription(
                 getContext().getString(mCharging ? R.string.accessibility_battery_level_charging

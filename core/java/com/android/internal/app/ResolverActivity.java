@@ -341,6 +341,7 @@ public class ResolverActivity extends Activity implements
     protected void onCreate(Bundle savedInstanceState, Intent intent,
             CharSequence title, int defaultTitleRes, Intent[] initialIntents,
             List<ResolveInfo> rList, boolean supportsAlwaysUseOption) {
+        getWindow().setFlags(0x01000000 /* FLAG_HARDWARE_ACCELERATED */, 0x01000000);
         setTheme(appliedThemeResId());
         super.onCreate(savedInstanceState);
 
